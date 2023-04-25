@@ -1,3 +1,11 @@
+/* 
+ * Lily Demos
+ * Mod Title
+ * Time taken
+ * Mods chosen
+ * Citations if needed
+ */
+
 let config = {
     type: Phaser.AUTO,
     width: 640,
