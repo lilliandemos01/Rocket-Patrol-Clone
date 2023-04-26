@@ -73,6 +73,22 @@ class Play extends Phaser.Scene {
             this.add.text(game.config.width / 2, game.config.height / 2 + 64, "Press (R) to Restart or <- for Menu", scoreConfig).setOrigin(0.5);
             this.gameOver = true;
         }, null, this);
+
+        //create fire ui
+        let fireConfig = {
+            fontFamily: 'Courier',
+            fontSize: '28px',
+            backgroundColor: '#F3B141',
+            color: '#843605',
+            align: 'right',
+            padding: {
+                top: 5,
+                bottom: 5,
+            },
+            fixedWidth: 0
+        }
+        this.displayFire = this.add.text(game.config.width / 2, borderUIsize + borderPadding * 2, 
+                                         "FIRE", fireConfig).setOrigin(0.5, 0).setVisible(false)
     }
 
     update() {
@@ -104,6 +120,14 @@ class Play extends Phaser.Scene {
         if(this.checkCollision(this.p1Rocket, this.ship01)) {
             this.p1Rocket.reset();
             this.shipExplode(this.ship01);
+        }
+
+        //display fire ui temproarily
+        if(this.p1Rocket.isFiring) {
+            this.displayFire.setVisible(true)
+        }
+        else {
+            this.displayFire.setVisible(false)
         }
     }
 

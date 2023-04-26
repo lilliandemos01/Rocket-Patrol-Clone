@@ -1,3 +1,13 @@
+/*
+ * Lily Demos
+ * Title
+ * Time taken
+ * Mods: 
+ *    Fire UI added
+ * Sources:
+ *    https://phaser.discourse.group/t/how-to-remove-text/742
+ */
+
 let config = {
     type: Phaser.AUTO,
     width: 640,
