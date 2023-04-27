@@ -1,9 +1,9 @@
 /*
  * Lily Demos
  * Title
- * Time taken
+ * Time taken: 1 hour currently
  * Mods: 
- *    Fire UI added
+ *    Fire UI added, New tilemap (more stars, added asteroids)
  * Sources:
  *    https://phaser.discourse.group/t/how-to-remove-text/742
  */

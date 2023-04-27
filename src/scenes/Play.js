@@ -7,7 +7,7 @@ class Play extends Phaser.Scene {
         //load images and tilesprite
         this.load.image("rocket", "./assets/rocket.png");
         this.load.image("spaceship", "./assets/spaceship.png");
-        this.load.image("starfield", "./assets/starfield.png");
+        this.load.image("starfield", "./assets/starfield-asteroids.png");
 
         //load spritesheet
         this.load.spritesheet("explosion", "./assets/explosion.png", {frameWidth: 64, frameHeight: 32, startFrame: 0, endFrame: 9});
@@ -68,27 +68,22 @@ class Play extends Phaser.Scene {
 
         //clock
         scoreConfig.fixedWidth = 0;
-        this.clock = this.time.delayedCall (game.settings.gameTimer, () => {
-            this.add.text(game.config.width / 2, game.config.height / 2, "GAME OVER", scoreConfig).setOrigin(0.5);
-            this.add.text(game.config.width / 2, game.config.height / 2 + 64, "Press (R) to Restart or <- for Menu", scoreConfig).setOrigin(0.5);
-            this.gameOver = true;
+        this.speedup = false;
+        this.speedupTime = 5000;
+        this.clock = this.time.delayedCall(this.speedupTime, () => {
+            this.speedup = true;
+
+            this.time.delayedCall(game.settings.gameTimer - this.speedupTime, () => {
+                this.add.text(game.config.width / 2, game.config.height / 2, "GAME OVER", scoreConfig).setOrigin(0.5);
+                this.add.text(game.config.width / 2, game.config.height / 2 + 64, "Press (R) to Restart or <- for Menu", 
+                              scoreConfig).setOrigin(0.5);
+                this.gameOver = true;
+            }, null, this);
         }, null, this);
 
-        //create fire ui
-        let fireConfig = {
-            fontFamily: 'Courier',
-            fontSize: '28px',
-            backgroundColor: '#F3B141',
-            color: '#843605',
-            align: 'right',
-            padding: {
-                top: 5,
-                bottom: 5,
-            },
-            fixedWidth: 0
-        }
+        //create fire UI
         this.displayFire = this.add.text(game.config.width / 2, borderUIsize + borderPadding * 2, 
-                                         "FIRE", fireConfig).setOrigin(0.5, 0).setVisible(false)
+                                         "FIRE", scoreConfig).setOrigin(0.5, 0).setVisible(false)
     }
 
     update() {
@@ -128,6 +123,13 @@ class Play extends Phaser.Scene {
         }
         else {
             this.displayFire.setVisible(false)
+        }
+
+        //speedup USE SIGNALS
+        if(this.speedup) {
+            this.ship01.moveSpeed++;
+            this.ship02.moveSpeed++;
+            this.ship03.moveSpeed++;
         }
     }
 
