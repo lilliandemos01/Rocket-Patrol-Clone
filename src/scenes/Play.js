@@ -63,30 +63,37 @@ class Play extends Phaser.Scene {
         }
         this.scoreLeft = this.add.text(borderUIsize + borderPadding, borderUIsize + borderPadding * 2, this.p1Score, scoreConfig);
 
+        //display time remaining
+        this.timer = 0;
+        this.timeRemaining = game.settings.gameTimer / 1000;
+        this.displayTime = this.add.text(game.config.width - borderUIsize -borderPadding, borderUIsize + borderPadding * 2, 
+                                         this.timeRemaining, scoreConfig).setOrigin(1, 0);
+
         //game over flag
         this.gameOver = false;
 
         //clock
-        scoreConfig.fixedWidth = 0;
         this.speedup = false;
         this.speedupTime = 5000;
-        this.clock = this.time.delayedCall(this.speedupTime, () => {
+        scoreConfig.fixedWidth = 0;
+        this.speedupClock = this.time.delayedCall(this.speedupTime, () => {
             this.speedup = true;
+        }, null, this);
 
-            this.time.delayedCall(game.settings.gameTimer - this.speedupTime, () => {
-                this.add.text(game.config.width / 2, game.config.height / 2, "GAME OVER", scoreConfig).setOrigin(0.5);
-                this.add.text(game.config.width / 2, game.config.height / 2 + 64, "Press (R) to Restart or <- for Menu", 
-                              scoreConfig).setOrigin(0.5);
-                this.gameOver = true;
-            }, null, this);
+        this.clock = this.time.delayedCall(game.settings.gameTimer, () => {
+            this.add.text(game.config.width / 2, game.config.height / 2, "GAME OVER", scoreConfig).setOrigin(0.5);
+            this.add.text(game.config.width / 2, game.config.height / 2 + 64, "Press (R) to Restart or <- for Menu", 
+                          scoreConfig).setOrigin(0.5);
+            this.gameOver = true;
+            this.displayTime.text = 0;
         }, null, this);
 
         //create fire UI
         this.displayFire = this.add.text(game.config.width / 2, borderUIsize + borderPadding * 2, 
-                                         "FIRE", scoreConfig).setOrigin(0.5, 0).setVisible(false)
+                                         "FIRE", scoreConfig).setOrigin(0.5, 0).setVisible(false);
     }
 
-    update() {
+    update(time, delta) {
         if(this.gameOver && Phaser.Input.Keyboard.JustDown(keyR)) {
             this.scene.restart();
         }
@@ -94,9 +101,8 @@ class Play extends Phaser.Scene {
             this.scene.start("menuScene");
         }
 
-        this.starfield.tilePositionX -= 4;
-
         if(!this.gameOver) {
+            this.starfield.tilePositionX -= 4;
             this.p1Rocket.update();
             this.ship01.update();
             this.ship02.update();
@@ -131,6 +137,14 @@ class Play extends Phaser.Scene {
             this.ship02.moveSpeed *= 1.35;
             this.ship03.moveSpeed *= 1.35;
             this.speedup = false;
+        }
+        
+        //update display time
+        this.timer += delta;
+        while (this.timer > 1000 && !this.gameOver) {
+            this.timeRemaining--;
+            this.displayTime.text = this.timeRemaining;
+            this.timer -= 1000;
         }
     }
 
