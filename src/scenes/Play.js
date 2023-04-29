@@ -127,9 +127,9 @@ class Play extends Phaser.Scene {
 
         //speedup
         if(this.speedup) {
-            this.ship01.moveSpeed *= 1.5;
-            this.ship02.moveSpeed *= 1.5;
-            this.ship03.moveSpeed *= 1.5;
+            this.ship01.moveSpeed *= 1.35;
+            this.ship02.moveSpeed *= 1.35;
+            this.ship03.moveSpeed *= 1.35;
             this.speedup = false;
         }
     }
