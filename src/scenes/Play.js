@@ -7,7 +7,7 @@ class Play extends Phaser.Scene {
         //load images and tilesprite
         this.load.image("rocket", "./assets/rocket.png");
         this.load.image("spaceship", "./assets/spaceship.png");
-        this.load.image("starfield", "./assets/starfield-asteroids.png");
+        this.load.image("starfield", "./assets/starfield-mod.png");
 
         //load spritesheet
         this.load.spritesheet("explosion", "./assets/explosion.png", {frameWidth: 64, frameHeight: 32, startFrame: 0, endFrame: 9});
@@ -125,11 +125,12 @@ class Play extends Phaser.Scene {
             this.displayFire.setVisible(false)
         }
 
-        //speedup USE SIGNALS
+        //speedup
         if(this.speedup) {
-            this.ship01.moveSpeed++;
-            this.ship02.moveSpeed++;
-            this.ship03.moveSpeed++;
+            this.ship01.moveSpeed *= 1.5;
+            this.ship02.moveSpeed *= 1.5;
+            this.ship03.moveSpeed *= 1.5;
+            this.speedup = false;
         }
     }
 

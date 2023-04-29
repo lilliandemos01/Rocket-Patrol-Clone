@@ -1,7 +1,7 @@
 /*
  * Lily Demos
  * Title
- * Time taken: 1 hour currently
+ * Time taken: 2 hour currently
  * Mods: 
  *    Fire UI added, New tilemap (more stars, added asteroids)
  * Sources:
