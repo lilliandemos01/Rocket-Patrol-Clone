@@ -1,10 +1,10 @@
 /*
  * Lily Demos
  * Title
- * Time taken: 2.5 hour currently
+ * Time taken: 2.5 hours
  * Mods: 
- *    Fire UI added, New tilemap (more stars, added asteroids), Speedup after 30 seconds,
- *    Randomized spaceship direction
+ *    Fire UI added, New tilemap (more stars + added asteroids), Speedup after 30 seconds,
+ *    Randomized spaceship direction, Rocket moveable while fired
  * Sources:
  *    https://phaser.discourse.group/t/how-to-remove-text/742
  */
