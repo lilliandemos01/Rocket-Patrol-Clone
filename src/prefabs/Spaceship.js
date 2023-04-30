@@ -7,14 +7,25 @@ class Spaceship extends Phaser.GameObjects.Sprite {
 
         //decide which side of screeen spaceship will spawn
         this.direction = Math.floor(Math.random() * 2);
+        console.log(this.texture);
         if(this.direction) {
             scene.add.existing(this);
-            this.moveSpeed = game.settings.spaceshipSpeed;
+            if(this.width > 40) {
+                this.moveSpeed = game.settings.spaceshipSpeed;
+            }
+            else {
+                this.moveSpeed = game.settings.fighterSpeed;
+            }
         }
         else {
             this.x = 0
             scene.add.existing(this);
-            this.moveSpeed = game.settings.spaceshipSpeed * -1;
+            if(this.width > 40) {
+                this.moveSpeed = game.settings.spaceshipSpeed * -1;
+            }
+            else {
+                this.moveSpeed = game.settings.fighterSpeed * -1;
+            }
             this.flipX = true;
         }
     }

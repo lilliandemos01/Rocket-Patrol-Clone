@@ -1,11 +1,10 @@
 /*
  * Lily Demos
  * Rocket Patrol: Epic Edition
- * Time taken: 3.5 hours
+ * Time taken: 5.2 hours
  * Mods: 
- *    Fire UI added, New tilemap (more stars + added asteroids), Speedup after 30 seconds,
- *    Randomized spaceship direction, Rocket moveable while fired, Remaining time displayed
- *    New title screen
+ *    Fire UI added, New tilemap, Speedup after 30 seconds, Randomized spaceship direction, 
+ *    Rocket moveable while fired, Remaining time displayed, New title screen, New spaceship enemy
  * Sources:
  *    https://phaser.discourse.group/t/how-to-remove-text/742
  *    https://www.html5gamedevs.com/topic/14039-call-a-function-in-the-update-method-only-once/
