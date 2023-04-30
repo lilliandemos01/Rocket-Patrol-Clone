@@ -7,7 +7,6 @@ class Spaceship extends Phaser.GameObjects.Sprite {
 
         //decide which side of screeen spaceship will spawn
         this.direction = Math.floor(Math.random() * 2);
-        console.log(this.texture);
         if(this.direction) {
             scene.add.existing(this);
             if(this.width > 40) {

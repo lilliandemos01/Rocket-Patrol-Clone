@@ -4,7 +4,8 @@
  * Time taken: 5.2 hours
  * Mods: 
  *    Fire UI added, New tilemap, Speedup after 30 seconds, Randomized spaceship direction, 
- *    Rocket moveable while fired, Remaining time displayed, New title screen, New spaceship enemy
+ *    Rocket moveable while fired, Remaining time displayed, New title screen, New spaceship enemy,
+ *    Randomized explosion sfx, 
  * Sources:
  *    https://phaser.discourse.group/t/how-to-remove-text/742
  *    https://www.html5gamedevs.com/topic/14039-call-a-function-in-the-update-method-only-once/

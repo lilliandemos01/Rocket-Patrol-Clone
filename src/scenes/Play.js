@@ -28,7 +28,7 @@ class Play extends Phaser.Scene {
          this.ship03 = new Spaceship(this, game.config.width, borderUIsize * 7 + borderPadding * 4, "spaceship", 0, 10).setOrigin(0, 0);
          //add new spaceship
          this.fighter01 = new Spaceship(this, game.config.width + borderUIsize * 9, borderUIsize * 4, "fighter", 0, 50).setOrigin(0, 0);
-         
+
         //green UI background
         this.add.rectangle(0, borderUIsize + borderPadding, game.config.width, borderUIsize * 2, 0x00FF00).setOrigin(0, 0);
         //white borders
@@ -184,6 +184,16 @@ class Play extends Phaser.Scene {
         this.p1Score += ship.points;
         this.scoreLeft.text = this.p1Score;
 
-        this.sound.play("sfx_explosion");
+        let rand_sfx = Math.floor(Math.random() * 5);
+        if(rand_sfx == 0)
+            this.sound.play("sfx_explosion");
+        else if(rand_sfx == 1)
+            this.sound.play("sfx_explosion1");
+        else if(rand_sfx == 2)
+            this.sound.play("sfx_explosion2");
+        else if(rand_sfx == 3)
+            this.sound.play("sfx_explosion3");
+        else if(rand_sfx == 4)
+            this.sound.play("sfx_explosion4");
     }
 }
