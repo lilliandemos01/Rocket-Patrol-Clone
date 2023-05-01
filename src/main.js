@@ -1,11 +1,11 @@
 /*
  * Lily Demos
  * Rocket Patrol: Epic Edition
- * Time taken: 5.2 hours
+ * Time taken: 6 hours
  * Mods: 
- *    Fire UI added, New tilemap, Speedup after 30 seconds, Randomized spaceship direction, 
- *    Rocket moveable while fired, Remaining time displayed, New title screen, New spaceship enemy,
- *    Randomized explosion sfx, 
+ *    Fire UI added (5), New tilemap (5), Speedup after 30 seconds (5), Randomized spaceship direction (5), 
+ *    Rocket moveable while fired (5), Remaining time displayed (10), New title screen (10), New spaceship enemy (15),
+ *    Randomized explosion sfx (10), high score display (5)
  * Sources:
  *    https://phaser.discourse.group/t/how-to-remove-text/742
  *    https://www.html5gamedevs.com/topic/14039-call-a-function-in-the-update-method-only-once/
@@ -28,3 +28,5 @@ let borderPadding = borderUIsize / 3;
 
 //reserve keyboard vars
 let keyF, keyR, keyLEFT, keyRIGHT;
+
+let highScore = 0;

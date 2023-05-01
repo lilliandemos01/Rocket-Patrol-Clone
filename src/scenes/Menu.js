@@ -18,6 +18,7 @@ class Menu extends Phaser.Scene {
     }
 
     create() {
+        console.log(highScore);
         //place tilesprite
         this.add.tileSprite(0, 0, 640, 480, "title_screen").setOrigin(0, 0);
 
@@ -38,6 +39,7 @@ class Menu extends Phaser.Scene {
         this.add.text(game.config.width / 2, borderUIsize, "ROCKET PATROL", menuConfig).setOrigin(0.5);
         this.add.text(game.config.width / 2, game.config.height / 2 - borderUIsize, "EPIC EDITION", menuConfig).setOrigin(0.5);
         menuConfig.fontSize = '28px';
+        this.add.text(game.config.width / 2, game.config.height / 1.3 - + borderUIsize - borderPadding, `High Score: ${highScore}`, menuConfig).setOrigin(0.5);
         this.add.text(game.config.width / 2, game.config.height / 1.3, "Use <--> arrows to move & (F) to fire", menuConfig).setOrigin(0.5);
         menuConfig.backgroundColor = "#00FF00";
         menuConfig.color = "#000";
