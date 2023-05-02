@@ -15,7 +15,6 @@ class Play extends Phaser.Scene {
     }
 
     create() {
-        console.log(highScore);
         //place tilesprite
         this.starfield = this.add.tileSprite(0, 0, 640, 480, "starfield").setOrigin(0, 0);
 
@@ -69,12 +68,18 @@ class Play extends Phaser.Scene {
         this.scoreRight = this.add.text(game.config.width - borderUIsize - borderPadding * 2 - scoreConfig.fixedWidth, 
                                        borderUIsize + borderPadding * 2, `HS:${highScore}`, scoreConfig).setOrigin(1, 0);
 
+        //play background music
+        let musicConfig = {
+            loop: true
+        };
+        let background_music = this.sound.add("background_music", musicConfig);
+        background_music.play();
+
         //display time remaining
         this.timer = 0;
         this.timeRemaining = game.settings.gameTimer / 1000;
         this.displayTime = this.add.text(game.config.width - borderUIsize -borderPadding, borderUIsize + borderPadding * 2, 
                                          this.timeRemaining, scoreConfig).setOrigin(1, 0);
-
         //game over flag
         this.gameOver = false;
 
@@ -91,6 +96,7 @@ class Play extends Phaser.Scene {
             this.add.text(game.config.width / 2, game.config.height / 2 + 64, "Press (R) to Restart or <- for Menu", 
                           scoreConfig).setOrigin(0.5);
             this.gameOver = true;
+            background_music.stop();
             if(this.p1Score > highScore) {
                 highScore = this.p1Score;
             }

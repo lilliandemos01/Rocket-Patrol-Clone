@@ -12,13 +12,13 @@ class Menu extends Phaser.Scene {
         this.load.audio("sfx_explosion3", "./assets/explosion3.wav");
         this.load.audio("sfx_explosion4", "./assets/explosion4.wav");
         this.load.audio("sfx_rocket", "./assets/rocket_shot.wav");
+        this.load.audio("background_music", "./assets/background_music.wav");
 
         //load tileprite
         this.load.image("title_screen", "./assets/title_screen.png")
     }
 
     create() {
-        console.log(highScore);
         //place tilesprite
         this.add.tileSprite(0, 0, 640, 480, "title_screen").setOrigin(0, 0);
 
