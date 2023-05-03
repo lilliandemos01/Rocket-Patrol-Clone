@@ -1,7 +1,7 @@
 /*
  * Lily Demos
  * Rocket Patrol: Epic Edition
- * Time taken: 6 hours
+ * Time taken: 6.5 hours
  * Mods: 
  *    Fire UI added (5), New tilemap (5), Speedup after 30 seconds (5), Randomized spaceship direction (5), 
  *    Rocket moveable while fired (5), Remaining time displayed (10), New title screen (10), New spaceship enemy (15),
