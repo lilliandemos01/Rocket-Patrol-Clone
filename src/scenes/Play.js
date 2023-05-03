@@ -85,7 +85,7 @@ class Play extends Phaser.Scene {
 
         //clock
         this.speedup = false;
-        this.speedupTime = 5000;
+        this.speedupTime = 30000;
         scoreConfig.fixedWidth = 0;
         this.speedupClock = this.time.delayedCall(this.speedupTime, () => {
             this.speedup = true;
